@@ -1,0 +1,6 @@
+name: FFA
+api: ["4.0.0"]
+author: "BlckqPlugins"
+description: "An FFA plugin for PocketMine Networks"
+version: "1.0.0"
+main: FFA\FFA\Main
