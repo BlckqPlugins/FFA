@@ -10,9 +10,9 @@ enable-pickup: false
 spawn-radius: 9
 
 #messages
-message-player-join: "&8[&a+&8] {player}"
-message-player-left: "&8[&4-&8] {player}"
-message-player-died: "{prefix} {player} &cdied&7."
-message-player-killed: "{prefix} {player} &cwas killed by &r{killer}&7."
+message-player-join: "&8[&a+&8] &r{player}"
+message-player-left: "&8[&4-&8] &r{player}"
+message-player-died: "{prefix} &r{player} &cdied&7."
+message-player-killed: "{prefix} &r{player} &cwas killed by &r{killer}&7."
 message-player-canBuild: "{prefix} &aYou can now &eBuild&7."
 message-player-cantBuild: "{prefix} &cYou can no longer &eBuild&7."
