@@ -19,8 +19,8 @@ class PlayerJoinListener implements Listener {
         $mplayer->setSpectator(false);
 
         foreach (Server::getInstance()->getOnlinePlayers() as $oply){
-            if (Main::getInstance()->getConfig()->get("enable-joinmessage")){
-                $joinmessage = Main::getInstance()->getConfig()->get("message-player-joined");
+            if (Main::getInstance()->getConfig()->get("enable-joinmessage") ?? true){
+                $joinmessage = Main::getInstance()->getConfig()->get("message-player-joined") ?? "§8[§a+§8] §r{$player->getDisplayName()}";
                 $joinmessage = str_replace("&", "§", $joinmessage);
                 $joinmessage = str_replace("{player}", $player->getDisplayName(), $joinmessage);
                 $oply->sendMessage($joinmessage);

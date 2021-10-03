@@ -20,8 +20,8 @@ class PlayerQuitListener implements Listener {
         Main::$ffaplayers[$player->getName()]->setCanBuild(false);
 
         foreach (Server::getInstance()->getOnlinePlayers() as $oply){
-            if (Main::getInstance()->getConfig()->get("enable-quitmessage")){
-                $quitmessage = Main::getInstance()->getConfig()->get("message-player-left");
+            if (Main::getInstance()->getConfig()->get("enable-quitmessage") ?? true){
+                $quitmessage = Main::getInstance()->getConfig()->get("message-player-left") ?? "§8[§4-§8] §r{$player->getDisplayName()}";
                 $quitmessage = str_replace("&", "§", $quitmessage);
                 $quitmessage = str_replace("{player}", $player->getDisplayName(), $quitmessage);
                 $oply->sendMessage($quitmessage);

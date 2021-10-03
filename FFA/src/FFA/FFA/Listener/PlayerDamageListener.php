@@ -18,7 +18,7 @@ class PlayerDamageListener implements Listener {
         $killer = $event->getDamager();
         $victim = $event->getEntity();
 
-        if ($victim->getDirectionVector()->distance($victim->getWorld()->getSafeSpawn()) <= Main::getInstance()->getConfig()->get("spawn-radius") or $killer->getDirectionVector()->distance($killer->getWorld()->getSafeSpawn()) <= Main::getInstance()->getConfig()->get("spawn-radius")) {
+        if ($victim->getDirectionVector()->distance($victim->getWorld()->getSafeSpawn()) <= Main::getInstance()->getConfig()->get("spawn-radius") ?? 9 or $killer->getDirectionVector()->distance($killer->getWorld()->getSafeSpawn()) <= Main::getInstance()->getConfig()->get("spawn-radius") ?? 9) {
             $event->cancel();
         }
 
@@ -30,7 +30,7 @@ class PlayerDamageListener implements Listener {
                     PlayerUtils::giveItems($killer);
 
                     $config = Main::getInstance()->getConfig();
-                    $killmessage = $config->get("message-player-killed");
+                    $killmessage = $config->get("message-player-killed") ?? "§l§eFFA §7> §r{$victim->getDisplayName()} §cwas killed by §r{$killer->getDisplayName()}§7.";
                     $killmessage = str_replace("&", "§", $killmessage);
                     $killmessage = str_replace("{player}", $victim->getDisplayName(), $killmessage);
                     $killmessage = str_replace("{killer}", $killer->getDisplayName(), $killmessage);

@@ -30,10 +30,10 @@ class BuildCommand extends Command {
         $mplayer = Main::$ffaplayers[$sender->getName()];
         if (!$mplayer->isCanBuild()){
             $mplayer->setCanBuild(true);
-            $message = Main::getInstance()->getConfig()->get("message-player-canBuild");
+            $message = Main::getInstance()->getConfig()->get("message-player-canBuild") ?? "§aYou can now build§7.";
         } else {
             $mplayer->setCanBuild(false);
-            $message = Main::getInstance()->getConfig()->get("message-player-cantBuild");
+            $message = Main::getInstance()->getConfig()->get("message-player-cantBuild") ?? "§cYou can no longer build§7.";
         }
         $message = str_replace("&", "§", $message);
         $message = str_replace("{prefix}", Main::getInstance()->getConfig()->get("prefix"), $message);
