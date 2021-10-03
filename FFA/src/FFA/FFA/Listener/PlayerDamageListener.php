@@ -18,7 +18,7 @@ class PlayerDamageListener implements Listener {
         $killer = $event->getDamager();
         $victim = $event->getEntity();
 
-        if ($victim->getDirectionVector()->distance($victim->getWorld()->getSafeSpawn()) <= 9 or $killer->getDirectionVector()->distance($killer->getWorld()->getSafeSpawn()) <= 9) {
+        if ($victim->getDirectionVector()->distance($victim->getWorld()->getSafeSpawn()) <= Main::getInstance()->getConfig()->get("spawn-radius") or $killer->getDirectionVector()->distance($killer->getWorld()->getSafeSpawn()) <= Main::getInstance()->getConfig()->get("spawn-radius")) {
             $event->cancel();
         }
 
