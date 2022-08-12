@@ -2,11 +2,9 @@
 
 namespace FFA\FFA\Utils;
 
-use pocketmine\item\enchantment\Enchantment;
 use pocketmine\item\enchantment\EnchantmentInstance;
 use pocketmine\item\enchantment\VanillaEnchantments;
-use pocketmine\item\ItemFactory;
-use pocketmine\item\ItemIds;
+use pocketmine\item\VanillaItems;
 use pocketmine\player\Player;
 use pocketmine\Server;
 
@@ -27,24 +25,24 @@ class PlayerUtils {
         $power = new EnchantmentInstance(VanillaEnchantments::POWER(), 1);
 
         //Items
-        $sword = ItemFactory::getInstance()->get(ItemIds::IRON_SWORD);
+        $sword = VanillaItems::IRON_SWORD()->setUnbreakable(true);
         $sword->addEnchantment($sharpness);
 
-        $bow = ItemFactory::getInstance()->get(ItemIds::BOW);
+        $bow = VanillaItems::BOW()->setUnbreakable(true);
         $bow->addEnchantment($power);
 
-        $arrow = ItemFactory::getInstance()->get(ItemIds::ARROW, 0, 12);
+        $arrow = VanillaItems::ARROW()->setCount(12);
 
-        $helmet = ItemFactory::getInstance()->get(ItemIds::IRON_HELMET);
+        $helmet = VanillaItems::IRON_HELMET()->setUnbreakable(true);
         $helmet->addEnchantment($protection);
 
-        $chestplate = ItemFactory::getInstance()->get(ItemIds::IRON_CHESTPLATE);
+        $chestplate = VanillaItems::IRON_CHESTPLATE()->setUnbreakable(true);
         $chestplate->addEnchantment($protection);
 
-        $leggings = ItemFactory::getInstance()->get(ItemIds::IRON_LEGGINGS);
+        $leggings = VanillaItems::IRON_LEGGINGS()->setUnbreakable(true);
         $leggings->addEnchantment($protection);
 
-        $boots = ItemFactory::getInstance()->get(ItemIds::IRON_BOOTS);
+        $boots = VanillaItems::IRON_BOOTS()->setUnbreakable(true);
         $boots->addEnchantment($protection);
 
         $inventory->setItem(0, $sword);

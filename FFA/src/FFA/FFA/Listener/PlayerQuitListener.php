@@ -11,7 +11,7 @@ use pocketmine\Server;
 
 class PlayerQuitListener implements Listener {
 
-    public function onJoin(PlayerQuitEvent $event){
+    public function onQuit(PlayerQuitEvent $event){
         $player = $event->getPlayer();
         $event->setQuitMessage("");
 
