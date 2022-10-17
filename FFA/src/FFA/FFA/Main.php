@@ -44,7 +44,7 @@ class Main extends PluginBase {
     }
 
     /**
-     * @return mixed
+     * @return Main
      */
     public static function getInstance(): Main
     {

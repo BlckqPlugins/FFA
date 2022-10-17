@@ -9,7 +9,9 @@ use pocketmine\event\player\PlayerDropItemEvent;
 class PlayerDropListener implements Listener {
 
     public function onDrop(PlayerDropItemEvent $event){
-        if (!Main::getInstance()->getConfig()->get("enable-drops") ?? false) $event->cancel();
+        if (!Main::getInstance()->getConfig()->get("enable-drops", false)){
+            $event->cancel();
+        }
     }
 
 }

@@ -12,20 +12,19 @@ use pocketmine\Server;
 
 class PlayerDamageListener implements Listener {
 
-    public function onDamage(EntityDamageEvent $event){
-        if (!$event instanceof EntityDamageByEntityEvent) $event->cancel();
+    public function onDamage(EntityDamageByEntityEvent $event){
 
         $killer = $event->getDamager();
         $victim = $event->getEntity();
 
-        if ($victim->getDirectionVector()->distance($victim->getWorld()->getSafeSpawn()) <= Main::getInstance()->getConfig()->get("spawn-radius") ?? 9 or $killer->getDirectionVector()->distance($killer->getWorld()->getSafeSpawn()) <= Main::getInstance()->getConfig()->get("spawn-radius") ?? 9) {
+        if ($victim->getDirectionVector()->distance($victim->getWorld()->getSafeSpawn()) <= Main::getInstance()->getConfig()->get("spawn-radius", 9) or $killer->getDirectionVector()->distance($killer->getWorld()->getSafeSpawn()) <= Main::getInstance()->getConfig()->get("spawn-radius", 9)) {
             $event->cancel();
         }
 
         if ($victim instanceof Player && $killer instanceof Player) {
             if ($victim->getHealth() <= $event->getFinalDamage()) {
+                $event->cancel();
                 if ($victim->getName() !== $killer->getName()) {
-                    $event->cancel();
                     PlayerUtils::die($victim);
                     PlayerUtils::giveItems($killer);
 
@@ -40,8 +39,6 @@ class PlayerDamageListener implements Listener {
                         $oply->sendMessage($killmessage);
                     }
 
-                } else {
-                    $event->cancel();
                 }
             }
         }
