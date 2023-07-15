@@ -12,7 +12,7 @@ class BuildCommand extends Command {
     public function __construct()
     {
         parent::__construct("build", "Build Command", "/build", []);
-        $this->setPermission("ffa.command.build");
+        $this->setPermission("ffa.command.spectate");
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
