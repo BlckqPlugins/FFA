@@ -39,8 +39,6 @@ class Main extends PluginBase {
         $pm->registerEvents(new PlayerBlockListener(), $this);
 
         Server::getInstance()->getCommandMap()->register("build", new BuildCommand());
-
-        Server::getInstance()->getLogger()->info("§aEnabled.");
     }
 
     /**

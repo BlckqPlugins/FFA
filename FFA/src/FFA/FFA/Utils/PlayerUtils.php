@@ -5,12 +5,15 @@ namespace FFA\FFA\Utils;
 use pocketmine\item\enchantment\EnchantmentInstance;
 use pocketmine\item\enchantment\VanillaEnchantments;
 use pocketmine\item\VanillaItems;
+use pocketmine\player\GameMode;
 use pocketmine\player\Player;
 use pocketmine\Server;
 
 class PlayerUtils {
 
     public static function giveItems(Player $player){
+        $player->setGamemode(GameMode::SURVIVAL());
+
         $inventory = $player->getInventory();
         $armorinv = $player->getArmorInventory();
 

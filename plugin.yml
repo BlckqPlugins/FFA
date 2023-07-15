@@ -4,3 +4,9 @@ author: "BlckqPlugins"
 description: "An FFA plugin for PocketMine Networks"
 version: "1.0.0"
 main: FFA\FFA\Main
+
+permissions:
+  ffa.command.build:
+    default: op
+  ffa.command.spectate:
+    default: op
