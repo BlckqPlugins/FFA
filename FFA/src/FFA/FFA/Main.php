@@ -3,6 +3,7 @@
 namespace FFA\FFA;
 
 use FFA\FFA\Commands\BuildCommand;
+use FFA\FFA\Commands\SpectateCommand;
 use FFA\FFA\Listener\PlayerBlockListener;
 use FFA\FFA\Listener\PlayerDamageListener;
 use FFA\FFA\Listener\PlayerDropListener;
@@ -39,6 +40,7 @@ class Main extends PluginBase {
         $pm->registerEvents(new PlayerBlockListener(), $this);
 
         Server::getInstance()->getCommandMap()->register("build", new BuildCommand());
+        Server::getInstance()->getCommandMap()->register("spectate", new SpectateCommand());
     }
 
     /**
